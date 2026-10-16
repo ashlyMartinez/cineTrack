@@ -1,157 +1,157 @@
-import styles from './MovieGrid.module.css';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import React, { useState, useEffect } from 'react';
+import styles from './MovieGrid.module.css'; // adjust path to your CSS module
+import movies from './dummyData.js';
 
+export default function MovieGrid() {
 
-const dummyMovies = [
-  {
-    id: "1",
-    title: "Neon Horizon",
-    year: 2024,
-    genres: ["Sci-Fi", "Action", "Cyberpunk"],
-    rating: 8.4,
-    duration: "2h 15m",
-    director: "Elena Vance",
-    posterUrl: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&w=500&q=80",
-    plot: "In a rain-drenched futuristic metropolis, a cybernetic detective uncovers a conspiracy that threatens to erase the memories of the city's entire population."
-  },
-  {
-    id: "2",
-    title: "The Silent Forest",
-    year: 2023,
-    genres: ["Mystery", "Thriller", "Drama"],
-    rating: 7.9,
-    duration: "1h 58m",
-    director: "Marcus Thorne",
-    posterUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=500&q=80",
-    plot: "When a renowned biologist vanishes in an ancient, uncharted woodland, her estranged daughter follows her trail into a world where nature defies physics."
-  },
-  {
-    id: "3",
-    title: "Chef's Legacy",
-    year: 2025,
-    genres: ["Comedy", "Drama"],
-    rating: 8.1,
-    duration: "1h 45m",
-    director: "Sophia Chen",
-    posterUrl: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=500&q=80",
-    plot: "A high-strung Michelin-star chef loses his restaurant to a corporate takeover, prompting him to rediscover his love for cooking by opening a humble seaside food truck."
-  },
-  {
-    id: "4",
-    title: "Chasing Midnight",
-    year: 2022,
-    genres: ["Action", "Adventure"],
-    rating: 7.2,
-    duration: "2h 05m",
-    director: "Julian Rossi",
-    posterUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80",
-    plot: "Two rival art thieves are forced to team up across Europe to steal back a priceless artifact from a highly secure underground bunker."
-  },
-  {
-    id: "5",
-    title: "Echoes of Jupiter",
-    year: 2026,
-    genres: ["Sci-Fi", "Adventure"],
-    rating: 8.7,
-    duration: "2h 42m",
-    director: "Aris Thorne",
-    posterUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
-    plot: "The crew of a deep-space exploration vessel receives a mysterious audio transmission originating from the icy core of Jupiter's moon, Europa."
-  },
-  {
-    id: "6",
-    title: "Starlight Melody",
-    year: 2024,
-    genres: ["Romance", "Music", "Drama"],
-    rating: 7.5,
-    duration: "1h 52m",
-    director: "Chloe Dupont",
-    posterUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    plot: "An aspiring jazz pianist and a classical violinist cross paths in Paris, sparking a bittersweet romance that tests the boundaries of their artistic ambitions."
-  }, 
-  {
-    id: "7",
-    title: "Starlight Melody",
-    year: 2024,
-    genres: ["Romance", "Music", "Drama"],
-    rating: 7.5,
-    duration: "1h 52m",
-    director: "Chloe Dupont",
-    posterUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    plot: "An aspiring jazz pianist and a classical violinist cross paths in Paris, sparking a bittersweet romance that tests the boundaries of their artistic ambitions."
-  }, 
-  {
-    id: "8",
-    title: "Starlight Melody",
-    year: 2024,
-    genres: ["Romance", "Music", "Drama"],
-    rating: 7.5,
-    duration: "1h 52m",
-    director: "Chloe Dupont",
-    posterUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    plot: "An aspiring jazz pianist and a classical violinist cross paths in Paris, sparking a bittersweet romance that tests the boundaries of their artistic ambitions."
-  }, 
-  {
-    id: "9",
-    title: "Starlight Melody",
-    year: 2024,
-    genres: ["Romance", "Music", "Drama"],
-    rating: 7.5,
-    duration: "1h 52m",
-    director: "Chloe Dupont",
-    posterUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    plot: "An aspiring jazz pianist and a classical violinist cross paths in Paris, sparking a bittersweet romance that tests the boundaries of their artistic ambitions."
-  }, 
-  {
-    id: "10",
-    title: "Starlight Melody",
-    year: 2024,
-    genres: ["Romance", "Music", "Drama"],
-    rating: 7.5,
-    duration: "1h 52m",
-    director: "Chloe Dupont",
-    posterUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    plot: "An aspiring jazz pianist and a classical violinist cross paths in Paris, sparking a bittersweet romance that tests the boundaries of their artistic ambitions."
-  }
-];
-     
-export default function MovieGrid(){
-    return (
-        <div className={styles.movieGrid}>
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
 
-            <h2 className={styles.movieGridHeader}> | Trending Movies</h2>
-            <div className={styles.topMovieGridContainer}>
-                
-              {dummyMovies.slice(0, 3).map((movie) => (
-                  <div className={styles.topMovieCard} key={movie.id}>
-                      <div className={styles.topCardImageContainer}>
-                          <img src={movie.posterUrl} alt={movie.title} className={styles.cardImage} />
-                      </div>
-                      <div className={styles.topCardContent}>
-                          <h3 className={styles.cardTitle}>{movie.title}</h3>
-                          <p className={styles.cardDetails}>{movie.year} | {movie.genres.join(', ')} | {movie.duration}</p>
-                          <p className={styles.cardPlot}>{movie.plot}</p>
-                      </div>  
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Created event listener 'resize' to update windowWidth 
+  // Tracking windowWidth will trigger different movie displays
+  useEffect(() => {
+
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+
+  }, []);
+
+  // Breakpoints for differing movie grid displays 
+  // -> Might need to update by testing w/ larger screens
+  const isDesktop = windowWidth >= 1200;
+  const isTablet = windowWidth < 1200 && windowWidth >= 640;
+  const isMobile = windowWidth < 640;
+
+  // Mobile slice: show top 3 by default, or all 10 if expanded
+  const tabletMovies = isExpanded ? movies.slice(0,10): movies.slice(0,4)
+  const mobileMovies = isExpanded ? movies.slice(0, 10) : movies.slice(0, 3);
+
+  return (
+    <div className= {styles.container}>
+      <h3 className= {styles.title}>| Top 10 Movies</h3>
+
+      {/* Top 3 featured with full plot, next 7 in compact grid */}
+      {isDesktop && (
+        <>
+          <div className = {styles.desktopTopGrid}>
+
+            {
+              movies.slice(0, 3).map((movie) => (
+                <div key={movie.id} className={styles.desktopTopCard}>
+                  <img
+                    src={movie.posterUrl}
+                    alt={movie.title}
+                    className={styles.desktopTopImage}
+                  />
+                  <div className={styles.desktopTopContent}>
+                    <h3 className={styles.cardTitle}> {movie.title} </h3>
+                    <p className={styles.cardMeta}>
+                      {movie.year} | {movie.genres.join(', ')} | {movie.duration}
+                    </p>
+                    <p className={styles.cardPlot}>{movie.plot}</p>
                   </div>
-              ))}
-                
-            </div>
-            <div className={styles.movieGridContainer}>
-              {dummyMovies.slice(3, 10).map((movie) => (
-                  <div className={styles.movieCard} key={movie.id}>
-                      <div className={styles.cardImageContainer}>
-                          <img src={movie.posterUrl} alt={movie.title} className={styles.cardImage} />
-                      </div>
-                      <div className={styles.cardContent}>
-                          <h3 className={styles.cardTitle}>{movie.title}</h3>
-                          
-                          
-                      </div>  
+
+                  
+                </div>
+              ))
+            }
+
+          </div>
+
+          <div className={styles.desktopBottomGrid}>
+
+            {
+              movies.slice(3, 10).map((movie) => (
+
+                <div key={movie.id} className={styles.compactCard}>
+                  <img
+                    src={movie.posterUrl}
+                    alt={movie.title}
+                    className={styles.compactImage}
+                  />
+                  <div className={styles.compactContent}>
+                    <h4 className={styles.cardTitle}> {movie.title} </h4>
                   </div>
-              ))}
-            </div>
+                </div>
+
+              ))
+            }
+          </div>
+        </>
+      )}
+
+      {/* All top 10 movies in 2 columns with short inline metadata */}
+      {isTablet && (
+        <>
+          <div className={styles.tabletTwoColGrid}>
+
+            {
+              tabletMovies.map((movie) => (
+                <div key={movie.id} className={styles.horizontalCard}>
+                  <img
+                    src={movie.posterUrl}
+                    alt={movie.title}
+                    className={styles.horizontalImage}
+                  />
+                  <div className={styles.horizontalContent}>
+                    <h4 className={styles.cardTitle}>{movie.title}</h4>
+                    <p className={styles.shortMeta}>
+                      {movie.year} • {movie.duration} • ★ {movie.rating}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          <div className ={styles.toggleWrapper}>
+            <button
+            className= {styles.toggleButton}
+            onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? 'Show Less' : 'Show All Top 10 Movies'}
+            </button>
+          </div>
+        </>
+          
+
+       
+      )}
+
+      {/*  Single column showing 3 initial cards + collapse/expand button */}
+      {isMobile && (
+        <div className={styles.mobileContainer}>
+          <div className={styles.mobileSingleColGrid}>
+            {mobileMovies.map((movie) => (
+              <div key={movie.id} className={styles.horizontalCard}>
+                <img
+                  src={movie.posterUrl}
+                  alt={movie.title}
+                  className={styles.horizontalImage}
+                />
+                <div className={styles.horizontalContent}>
+                  <h4 className={styles.cardTitle}>{movie.title}</h4>
+                  <p className={styles.shortMeta}>
+                    {movie.year} • {movie.duration} • ★ {movie.rating}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <button
+            className= {styles.toggleButton}
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? 'Show Less' : 'Show All Top 10 Movies'}
+          </button>
         </div>
-    )
+      )}
+    </div>
+  );
 }

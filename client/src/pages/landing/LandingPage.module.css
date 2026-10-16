@@ -5,39 +5,38 @@
 /* Red: #c52233 */
 /* Black: #161316 */
 
-.landingPage{
-    
-    max-width: 100%;
-    max-height: fit-content;
-    animation: fade-in 3s;
-    font-family: 'Inter', system-ui, sans-serif;
+.container{
+  max-width: 100%;
+  max-height: fit-content;
+  animation: fade-in 3s;
+  font-family: 'Inter', system-ui, sans-serif;
     
 }
 
 .welcomeHeader{
-    margin: 1rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color:#161316;
-    border: 1px solid #252525;
-    border-radius: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  margin: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:#161316;
+  border: 1px solid #252525;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 
 }
 
 .welcomeHeader h1{
-    color: #fffffc;
-    font-weight: 550;
-    font-size: 3rem;
-    padding:4rem;
+  color: #fffffc;
+  font-weight: 550;
+  font-size: 3rem;
+  padding:4rem;
 }
 
  
 .dashBoard{
-    margin: 1rem 2rem;
+  margin: 1rem 2rem;
    
-    border: 1px solid #252525;
-    border-radius: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid #252525;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
