@@ -1,0 +1,14 @@
+
+
+
+.appContainer {
+  max-height: none;
+  min-height: 120vh;
+  width: 100%;
+  
+ 
+  background-attachment: fixed;
+  
+  display: flex;
+  flex-direction: column;
+}

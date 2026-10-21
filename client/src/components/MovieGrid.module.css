@@ -4,10 +4,7 @@
   padding: 1.5rem;
 }
 
-.title{
-  font-size: clamp(2rem, 2.5vw, 3.5rem);
-  margin: 1rem 0;
-}
+
 
 /* Desktop */
 .desktopTopGrid {
@@ -23,8 +20,10 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 1rem;
+  border: 1px solid #2525251f;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   gap: 1rem;
+  
 }
 
 .desktopTopImage {
@@ -47,6 +46,7 @@
   color: #555;
   margin-top: .2rem;
   display: -webkit-box;
+  line-clamp: 4;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -56,6 +56,11 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1rem;
+
+}
+
+.cardTitle{
+  padding-top: 5px;
 }
 
 .compactCard {
@@ -64,6 +69,7 @@
   background: #fff;
   border-radius: 8px;
   padding: 0.5rem;
+  border: 1px solid #2525251f;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 

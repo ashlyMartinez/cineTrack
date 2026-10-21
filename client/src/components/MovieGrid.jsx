@@ -22,6 +22,7 @@ export default function MovieGrid() {
 
   }, []);
 
+
   // Breakpoints for differing movie grid displays 
   // -> Might need to update by testing w/ larger screens
   const isDesktop = windowWidth >= 1200;
@@ -32,10 +33,16 @@ export default function MovieGrid() {
   const tabletMovies = isExpanded ? movies.slice(0,10): movies.slice(0,4)
   const mobileMovies = isExpanded ? movies.slice(0, 10) : movies.slice(0, 3);
 
+
+  const handleMovieClick = ()=>{
+    alert("clicked on a new movie")
+    
+  }
+
+
   return (
     <div className= {styles.container}>
-      <h3 className= {styles.title}>| Top 10 Movies</h3>
-
+      
       {/* Top 3 featured with full plot, next 7 in compact grid */}
       {isDesktop && (
         <>
@@ -43,7 +50,7 @@ export default function MovieGrid() {
 
             {
               movies.slice(0, 3).map((movie) => (
-                <div key={movie.id} className={styles.desktopTopCard}>
+                <div key={movie.id} className={styles.desktopTopCard} onClick={()=>{handleMovieClick}}>
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
@@ -69,14 +76,14 @@ export default function MovieGrid() {
             {
               movies.slice(3, 10).map((movie) => (
 
-                <div key={movie.id} className={styles.compactCard}>
+                <div key={movie.id} className={styles.compactCard} onClick={handleMovieClick}>
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
                     className={styles.compactImage}
                   />
                   <div className={styles.compactContent}>
-                    <h4 className={styles.cardTitle}> {movie.title} </h4>
+                    <h6 className={styles.cardTitle}> {movie.title} </h6>
                   </div>
                 </div>
 
@@ -93,7 +100,7 @@ export default function MovieGrid() {
 
             {
               tabletMovies.map((movie) => (
-                <div key={movie.id} className={styles.horizontalCard}>
+                <div key={movie.id} className={styles.horizontalCard} onClick={handleMovieClick}>
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
@@ -128,7 +135,7 @@ export default function MovieGrid() {
         <div className={styles.mobileContainer}>
           <div className={styles.mobileSingleColGrid}>
             {mobileMovies.map((movie) => (
-              <div key={movie.id} className={styles.horizontalCard}>
+              <div key={movie.id} className={styles.horizontalCard} onClick={handleMovieClick}>
                 <img
                   src={movie.posterUrl}
                   alt={movie.title}

@@ -2,6 +2,12 @@ import styles from './LandingPage.module.css'
 import MovieGrid from '../../components/MovieGrid';
 
 export default function LandingPage(){
+
+
+
+
+
+    
     return (
         <div className={styles.container}>
             <div className={styles.welcomeHeader}>
@@ -9,8 +15,15 @@ export default function LandingPage(){
                 
             </div>
             <div className={styles.dashBoard}>
+                <h3 className= {styles.title}>| Top 10 Movies</h3>
+                
                 <MovieGrid />
 
+            </div>
+            <div className={styles.dashBoard}>
+                <h3 className= {styles.title}>| Recommended For You</h3>
+                
+                <MovieGrid />
             </div>
 
 
