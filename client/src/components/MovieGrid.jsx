@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './MovieGrid.module.css'; // adjust path to your CSS module
 import movies from './dummyData.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function MovieGrid() {
 
@@ -9,6 +10,7 @@ export default function MovieGrid() {
   );
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const navigate = useNavigate(); 
 
   // Created event listener 'resize' to update windowWidth 
   // Tracking windowWidth will trigger different movie displays
@@ -34,9 +36,9 @@ export default function MovieGrid() {
   const mobileMovies = isExpanded ? movies.slice(0, 10) : movies.slice(0, 3);
 
 
-  const handleMovieClick = ()=>{
+  const handleMovieClick = (movie) =>{
     alert("clicked on a new movie")
-    
+    navigate(`/movie/${movie.id}`, { state: {movie: movie}})
   }
 
 
@@ -50,7 +52,7 @@ export default function MovieGrid() {
 
             {
               movies.slice(0, 3).map((movie) => (
-                <div key={movie.id} className={styles.desktopTopCard} onClick={()=>{handleMovieClick}}>
+                <div key={movie.id} className={`${styles.desktopTopCard} cards`} onClick={()=>{handleMovieClick(movie)}}>
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
@@ -76,7 +78,7 @@ export default function MovieGrid() {
             {
               movies.slice(3, 10).map((movie) => (
 
-                <div key={movie.id} className={styles.compactCard} onClick={handleMovieClick}>
+                <div key={movie.id} className={styles.compactCard} onClick={()=>{handleMovieClick(movie)}}>
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
@@ -100,7 +102,7 @@ export default function MovieGrid() {
 
             {
               tabletMovies.map((movie) => (
-                <div key={movie.id} className={styles.horizontalCard} onClick={handleMovieClick}>
+                <div key={movie.id} className={styles.horizontalCard} onClick={()=>{handleMovieClick(movie)}}>
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
@@ -135,7 +137,7 @@ export default function MovieGrid() {
         <div className={styles.mobileContainer}>
           <div className={styles.mobileSingleColGrid}>
             {mobileMovies.map((movie) => (
-              <div key={movie.id} className={styles.horizontalCard} onClick={handleMovieClick}>
+              <div key={movie.id} className={styles.horizontalCard} onClick={()=>{handleMovieClick(movie)}}>
                 <img
                   src={movie.posterUrl}
                   alt={movie.title}

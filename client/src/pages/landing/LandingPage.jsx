@@ -9,7 +9,7 @@ export default function LandingPage(){
 
     
     return (
-        <div className={styles.container}>
+        <div className={styles.pageWrapper}>
             <div className={styles.welcomeHeader}>
                 <h1 className={styles.welcomeText}>Welcome.<br></br>Find your next favorite movie.</h1>
                 

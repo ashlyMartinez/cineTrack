@@ -10,7 +10,7 @@ const appRouter = createBrowserRouter(
     // Need to update this to sign in Page when backend is set up 
     <Route path="/">
       <Route index element = {<LandingPage />}/>
-      <Route path = "movies/:movieId" element = {<Movie />}/>
+      <Route path = "movie/:movieId" element = {<Movie />}/>
 
     </Route>
   )
@@ -22,7 +22,7 @@ function App() {
   return (
     
     <div class = "appContainer">
-      <RouterProvider router={appRouter}/>;
+      <RouterProvider router={appRouter}/>
 
     </div>
       

@@ -5,7 +5,7 @@
 /* Red: #c52233 */
 /* Black: #161316 */
 
-.container{
+.pageWrapper{
   max-width: 100%;
   max-height: fit-content;
   animation: fade-in 3s;
@@ -18,10 +18,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:#161316;
-  border: 1px solid #252525;
-  border-radius: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  background: rgba(35, 38, 41, 0.85); /* Translucent glassmorphism container */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -34,9 +37,7 @@
 
 
 .dashBoard {
-  /* margin: 1rem 2rem;
-   */
-  margin: 2rem;
+  margin: 1rem;
   
   border: 1px solid #2525251f;
   border-radius: 1rem;
@@ -49,5 +50,6 @@
   font-size: clamp(2rem, 2.5vw, 3.5rem);
   padding-top:2rem;
   padding-left: 2rem;
+  color: #ffc800;
 }
 
