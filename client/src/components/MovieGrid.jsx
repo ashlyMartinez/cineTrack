@@ -37,7 +37,7 @@ export default function MovieGrid() {
 
 
   const handleMovieClick = (movie) =>{
-    alert("clicked on a new movie")
+    
     navigate(`/movie/${movie.id}`, { state: {movie: movie}})
   }
 
@@ -61,7 +61,7 @@ export default function MovieGrid() {
                   <div className={styles.desktopTopContent}>
                     <h3 className={styles.cardTitle}> {movie.title} </h3>
                     <p className={styles.cardMeta}>
-                      {movie.year} | {movie.genres.join(', ')} | {movie.duration}
+                      {movie.year} • {movie.genres.join(', ')} • {movie.duration}
                     </p>
                     <p className={styles.cardPlot}>{movie.plot}</p>
                   </div>

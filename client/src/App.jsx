@@ -4,12 +4,13 @@ import './App.css'
 import SignIn from './pages/signIn/SignIn';
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom';
 import Movie from './pages/movie/Movie'
-
+import List from './pages/list/List'
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
     // Need to update this to sign in Page when backend is set up 
     <Route path="/">
       <Route index element = {<LandingPage />}/>
+      <Route path = "list" element={<List />}/>
       <Route path = "movie/:movieId" element = {<Movie />}/>
 
     </Route>

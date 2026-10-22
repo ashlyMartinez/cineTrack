@@ -50,7 +50,7 @@ export default function Movie(){
                     {/* Details Column */}
                     <div className={styles.detailsWrapper}>
                         <h1 className={styles.movieTitle}>
-                        {movie.title} <span className={styles.releaseYear}>({movie.year})</span>
+                            {movie.title} <span className={styles.releaseYear}>({movie.year})</span>
                         </h1>
 
                         <p className={styles.metaInfo}>
@@ -64,21 +64,21 @@ export default function Movie(){
                             <div className={styles.ratingSection}>
                                 <span className={styles.actionLabel}>Your Rating:</span>
                                 <div className={styles.starContainer}>
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <button
-                                    key={star}
-                                    type="button"
-                                    className={`${styles.starButton} ${
-                                        star <= (hoverRating || userRating) ? styles.starActive : ''
-                                    }`}
-                                    onClick={() => setUserRating(star)}
-                                    onMouseEnter={() => setHoverRating(star)}
-                                    onMouseLeave={() => setHoverRating(0)}
-                                    aria-label={`Rate ${star} stars`}
-                                    >
-                                    ★
-                                    </button>
-                                ))}
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <button
+                                        key={star}
+                                        type="button"
+                                        className={`${styles.starButton} ${
+                                            star <= (hoverRating || userRating) ? styles.starActive : ''
+                                        }`}
+                                        onClick={() => setUserRating(star)}
+                                        onMouseEnter={() => setHoverRating(star)}
+                                        onMouseLeave={() => setHoverRating(0)}
+                                        aria-label={`Rate ${star} stars`}
+                                        >
+                                        ★
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
 
@@ -94,14 +94,12 @@ export default function Movie(){
 
                         {/* Overview / Plot */}
                         <div className={styles.overviewSection}>
-                        <h3>Overview</h3>
-                        <p>{movie.plot}</p>
+                            <h3>Overview</h3>
+                            <p>{movie.plot}</p>
                         </div>
                     </div>
-
                 </div>
             </div>
-            
         </div> 
     )
 
