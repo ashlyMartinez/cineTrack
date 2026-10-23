@@ -2,7 +2,7 @@ import styles from './NavBar.module.css'
 
 export default function NavBar(){
     return (
-        <nav className = {navContainer}>
+        <nav className = {styles.container}>
             <ul>
                 <li><a href = "#">Lists</a></li>
 

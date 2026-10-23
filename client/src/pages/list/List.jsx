@@ -1,16 +1,20 @@
 import styles from './List.module.css';
 import movies from '../../components/dummyData'
-
+const nomovies = [];
 export default function List(){
 
 
   return (
     <div className = {styles.pageWrapper}>
-        <h1>My Watchlist</h1>
+        <div className={styles.header}>
+            <h1 className={styles.headerText}>My Watchlist</h1>
+                        
+        </div>
+
         {movies.length === 0 ? (
             <p>Your watchlist is empty. Explore movies and click "+ Add to Watchlist"!</p>
         ) : (
-            <div className={styles.listGrid}>
+            <div className={styles.listContainer}>
                 {movies.map((movie) => (
                     <div key={movie.movie_id} className={styles.listItem}>
                         
