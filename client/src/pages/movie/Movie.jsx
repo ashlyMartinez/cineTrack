@@ -2,6 +2,7 @@ import styles from './Movie.module.css';
 import { useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import movies from '../../components/dummyData'
 export default function Movie(){
     let { movieId } = useParams();
     // Allows you to pass data from one route to another
@@ -99,6 +100,33 @@ export default function Movie(){
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className = {styles.recommendContainer}>
+                <div className = {styles.recommendHeader}>
+                    <h1 className={styles.recommendText}>| More like this</h1>
+                </div>
+
+                <div className = {styles.recommendCarousel}>
+                    {movies.map((movie) => (
+                        <div key={movie.id} className={styles.recommendCard}>
+                            <div className={styles.recommendPosterWrapper}>
+                                <img 
+                                    src={movie.posterUrl} 
+                                    alt={movie.title} 
+                                    className={styles.recommendPoster} 
+                                />
+                                </div>
+                                <div className={styles.recommendInfo}>
+                                    <h4 className={styles.recommendTitle}>{movie.title}</h4>
+                                    <p className={styles.recommendMeta}>
+                                        {movie.year} • ★ {movie.rating?.toFixed(1)}
+                                    </p>
+                                </div>
+                        </div>
+                    ))}
+
+                </div>
+
             </div>
         </div> 
     )

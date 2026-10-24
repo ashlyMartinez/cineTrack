@@ -2,8 +2,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 1.5rem;
-
-  
 }
 
 
@@ -13,24 +11,23 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
- 
 }
 
 .desktopTopCard {
   display: flex;
   flex-direction: row;
-  /* background: #dddada; */
   padding: 1rem;
-
-  /* background: #f4f4f4;
-  border-radius: 12px;
-  border: 1px solid #2525251f;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); */
-  
-  background: rgba(35, 38, 41, 0.85);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); 
-  border-radius: 16px;
   gap: 1rem;
+
+  background: rgba(35, 38, 41, 0.85); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   
 }
 
@@ -77,15 +74,20 @@
 .compactCard {
   display: flex;
   flex-direction: column;
-  /* background: #fff; */
-  border-radius: 8px;
+  
+  
   padding: 0.5rem;
-  /* border: 1px solid #2525251f;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); */
+  
 
-  background: rgba(35, 38, 41, 0.85);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); 
-  border-radius: 16px;
+  background: rgba(35, 38, 41, 0.85); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .compactImage {
@@ -111,15 +113,20 @@
 .horizontalCard {
   display: flex;
   align-items: center;
-  /* background: #ffffff; */
-  /* border-radius: 10px; */
+ 
   padding: 0.75rem;
   gap: 1rem;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); */
+  
+  background: rgba(35, 38, 41, 0.85); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-  background: rgba(35, 38, 41, 0.85);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); 
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
 }
 
 .horizontalImage {
