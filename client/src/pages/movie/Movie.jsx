@@ -101,11 +101,15 @@ export default function Movie(){
                     </div>
                 </div>
             </div>
+
+            {/* Recommended Carousel Card   */}
             <div className = {styles.recommendContainer}>
+
                 <div className = {styles.recommendHeader}>
                     <h1 className={styles.recommendText}>| More like this</h1>
                 </div>
-
+                
+                {/* Scrollable Recommended Movies */}
                 <div className = {styles.recommendCarousel}>
                     {movies.map((movie) => (
                         <div key={movie.id} className={styles.recommendCard}>

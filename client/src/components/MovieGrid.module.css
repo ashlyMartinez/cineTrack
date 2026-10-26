@@ -28,7 +28,7 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
+  cursor:pointer;
 }
 
 
@@ -88,6 +88,14 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor:pointer;
+}
+
+.horizontalCard:hover,
+.desktopTopCard:hover,
+.compactCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(254, 208, 41, 0.128); 
 }
 
 .compactImage {
