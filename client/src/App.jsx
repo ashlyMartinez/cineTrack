@@ -1,18 +1,22 @@
 import { useState } from 'react'
-import LandingPage from './pages/landing/LandingPage';
 import './App.css'
-import SignIn from './pages/signIn/SignIn';
+
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom';
-import Movie from './pages/movie/Movie'
-import List from './pages/list/List'
+
+import LandingPage from './pages/landing/LandingPage';
+import SignInPage from './pages/signIn/SignInPage';
+import MoviePage from './pages/movie/MoviePage';
+import ListPage from './pages/list/ListPage';
+import SearchPage from './pages/search/SearchPage';
+
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
     // Need to update this to sign in Page when backend is set up 
     <Route path="/">
       <Route index element = {<LandingPage />}/>
-      <Route path = "list" element={<List />}/>
-      <Route path = "movie/:movieId" element = {<Movie />}/>
-
+      <Route path = "list" element={<ListPage />}/>
+      <Route path = "movie/:movieId" element = {<MoviePage />}/>
+      <Route path = "search" element={<SearchPage />}/>
     </Route>
   )
 )

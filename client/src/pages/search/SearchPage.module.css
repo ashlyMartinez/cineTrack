@@ -1,0 +1,133 @@
+.pageWrapper{
+  max-width: 100%;
+  max-height: fit-content;
+  animation: fade-in 3s;
+  margin: 0 2rem;
+  padding: 2.5rem 1.5rem;
+  color: #1f2937;
+  
+}
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.searchBarWrapper {
+  width: 100%;
+  max-width: 900px;
+  
+}
+
+.searchInput {
+  width: 100%;
+  height:70px;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  background: rgba(22, 27, 34, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px; /* Pill shape */
+  color: #f0f6fc;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: #8b949e;
+}
+
+.searchInput:focus {
+  border-color: #ffc800;
+  box-shadow: 0 4px 16px rgba(255, 200, 0, 0.15);
+}
+
+/* No results state styling */
+.noResults {
+  text-align: center;
+  color: #8b949e;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+}
+
+.resultContainer{
+  /* border: 1px solid rgb(225, 225, 223); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem;
+
+  margin:2.5rem auto;
+  max-width: 900px;
+    
+}
+
+.horizontalCard {
+  display: flex;
+  align-items: center;
+ 
+  padding: 0.75rem;
+  gap: 1rem;
+  
+  background: rgba(35, 38, 41, 0.85); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin:1rem;
+
+}
+
+.horizontalCard:hover{
+  transform: translateY(-6px);
+  border-color: rgba(254, 208, 41, 0.128); 
+}
+
+
+.horizontalImage {
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.horizontalContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortMeta {
+  font-size: 0.85rem;
+  color: #c9d1d9;
+  margin-top: 0.25rem;
+}
+
+.cardTitle{
+  padding-top: 5px;
+  color: #f8f8f8;
+}
+
+.cardPlot {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #c9d1d9;
+  margin-top: .2rem;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

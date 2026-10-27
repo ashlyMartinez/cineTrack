@@ -1,9 +1,9 @@
-import styles from './Movie.module.css'; 
+import styles from './MoviePage.module.css'; 
 import { useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import movies from '../../components/dummyData'
-export default function Movie(){
+export default function MoviePage(){
     let { movieId } = useParams();
     // Allows you to pass data from one route to another
     const location = useLocation();

@@ -37,7 +37,6 @@ export default function MovieGrid() {
 
 
   const handleMovieClick = (movie) =>{
-    
     navigate(`/movie/${movie.id}`, { state: {movie: movie}})
   }
 

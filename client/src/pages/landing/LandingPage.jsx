@@ -4,10 +4,6 @@ import MovieGrid from '../../components/MovieGrid';
 export default function LandingPage(){
 
 
-
-
-
-    
     return (
         <div className={styles.pageWrapper}>
             <div className={styles.welcomeHeader}>

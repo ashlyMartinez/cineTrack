@@ -1,7 +1,7 @@
-import styles from './List.module.css';
+import styles from './ListPage.module.css';
 import movies from '../../components/dummyData'
 const nomovies = [];
-export default function List(){
+export default function ListPage(){
 
 
   return (

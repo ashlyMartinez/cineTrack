@@ -69,6 +69,13 @@
 .cardTitle{
   padding-top: 5px;
   color: #f8f8f8;
+  /* font-size: 0.9rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin: 0 0 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
 .compactCard {
@@ -96,6 +103,11 @@
 .compactCard:hover {
   transform: translateY(-6px);
   border-color: rgba(254, 208, 41, 0.128); 
+}
+
+.compactContent{
+  padding:.75rem .25rem;
+
 }
 
 .compactImage {

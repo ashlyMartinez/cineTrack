@@ -1,7 +1,7 @@
 
-import styles from './SignIn.module.css';
+import styles from './SignInPage.module.css';
 
-export default function SignIn(){
+export default function SignInPage(){
     return (
         <div className={styles.pageWrapper} > 
             <p>Sign In</p>
