@@ -48,9 +48,11 @@ export default function SearchPage(){
                                 />
 
                                 <div className={styles.horizontalContent}>
-                                    <h4 className={styles.cardTitle}>{movie.title}</h4>
+                                    <h3 className={styles.movieTitle}>
+                                        {movie.title} <span className={styles.releaseYear}>({movie.year})</span>
+                                    </h3>
                                     <p className={styles.shortMeta}>
-                                    {movie.year} • {movie.duration} • ★ {movie.rating}
+                                    {movie.duration} • ★ {movie.rating}
                                     </p>
                                     <p className={styles.cardPlot}>{movie.plot}</p>
                                 </div>

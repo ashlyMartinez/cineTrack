@@ -17,6 +17,7 @@ const appRouter = createBrowserRouter(
       <Route path = "list" element={<ListPage />}/>
       <Route path = "movie/:movieId" element = {<MoviePage />}/>
       <Route path = "search" element={<SearchPage />}/>
+      <Route path = "signin" element ={<SignInPage />}/>
     </Route>
   )
 )

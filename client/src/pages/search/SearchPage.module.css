@@ -114,9 +114,16 @@
   margin-top: 0.25rem;
 }
 
-.cardTitle{
+.movieTitle{
   padding-top: 5px;
   color: #f8f8f8;
+  font-weight: 500;
+ 
+}
+
+.releaseYear {
+  font-weight: 400;
+  color: #8b949e;
 }
 
 .cardPlot {
