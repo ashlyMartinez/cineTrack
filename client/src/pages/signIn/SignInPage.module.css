@@ -1,5 +1,7 @@
-.pageWrapper {
 
+
+.container {
+  
   width: 100%;
   min-height: 100vh;
 
@@ -10,10 +12,6 @@
   padding: 1.5rem;
 }
 
-.container {
-  width: 100%;
-  max-width: 440px;
-}
 
 .authCard {
   background: rgba(22, 27, 34, 0.85);

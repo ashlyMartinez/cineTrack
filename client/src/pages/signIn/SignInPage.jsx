@@ -1,7 +1,7 @@
 
 import styles from './SignInPage.module.css';
 import React, {useState}from 'react';
-
+import NavBar from '../../components/navbars/NavBar'
 
 
 export default function SignInPage({onSignIn}){
@@ -9,7 +9,7 @@ export default function SignInPage({onSignIn}){
     const [password, setPassword] = useState('');
     const [isSignUp, setIsSignUp] = useState(false);
 
-    
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         if(onSignIn){
@@ -19,7 +19,12 @@ export default function SignInPage({onSignIn}){
 
     return (
         <div className={styles.pageWrapper}>
+            <div className = {styles.nav}>
+                <NavBar />
+            </div>
+            
             <div className={styles.container}>
+                
                 <div className={styles.authCard}>
                 
                     <h1 className={styles.title}>

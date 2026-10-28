@@ -33,6 +33,8 @@ export default function SearchPage(){
                 </div>
 
             </div>
+            {/* When a user creates an account, route user to search page with different movie grids underneath the searchbar */}
+            {/* Insert movie grids here */}
             <div className = {styles.resultContainer}>
                 <div className = {styles.movieListContainer}>
                     { movies.length === 0 ?
