@@ -1,11 +1,16 @@
 import styles from './ListPage.module.css';
 import movies from '../../components/dummyData'
+import Navbar from '../../components/navbars/NavBar';
 const nomovies = [];
 export default function ListPage(){
 
 
   return (
     <div className = {styles.pageWrapper}>
+        <div className = {styles.nav}>
+                        <Navbar />
+                    </div>
+
         <div className={styles.header}>
             <h1 className={styles.headerText}>My Watchlist</h1>
                         

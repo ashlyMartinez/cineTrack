@@ -1,7 +1,7 @@
 import styles from './MoviePage.module.css'; 
 import { useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
+import Navbar from '../../components/navbars/NavBar';
 import movies from '../../components/dummyData'
 export default function MoviePage(){
     let { movieId } = useParams();
@@ -29,6 +29,9 @@ export default function MoviePage(){
     return (
         
         <div className={styles.pageWrapper}>
+            <div className = {styles.nav}>
+                <Navbar />
+            </div>
             
             <div 
                 className={styles.backdropHeader} 
@@ -37,100 +40,100 @@ export default function MoviePage(){
 
             {/* Main Overlapping Content Card */}
             <div className={styles.contentContainer}>
-                <div className={styles.movieHeaderCard}>
-                    
-                    {/* Poster Column */}
-                    <div className={styles.posterWrapper}>
-                        <img 
-                        src={posterUrl} 
-                        alt={movie.title} 
-                        className={styles.posterImage} 
-                        />
-                    </div>
+                <div className = {styles.movieContainer}>
+                    <div className={styles.movieHeader}>
+                        
+                        {/* Poster Column */}
+                        <div className={styles.posterWrapper}>
+                            <img 
+                            src={posterUrl} 
+                            alt={movie.title} 
+                            className={styles.posterImage} 
+                            />
+                        </div>
 
-                    {/* Details Column */}
-                    <div className={styles.detailsWrapper}>
-                        <h1 className={styles.movieTitle}>
-                            {movie.title} <span className={styles.releaseYear}>({movie.year})</span>
-                        </h1>
+                        {/* Details Column */}
+                        <div className={styles.detailsWrapper}>
+                            <h1 className={styles.movieTitle}>
+                                {movie.title} <span className={styles.releaseYear}>({movie.year})</span>
+                            </h1>
 
-                        <p className={styles.metaInfo}>
-                         {movie.duration} • {movie.genres.join(', ')}
-                        </p>
+                            <p className={styles.metaInfo}>
+                            {   movie.duration} • {movie.genres.join(', ')}
+                            </p>
 
-                        {/* Interactive User Actions */}
-                        <div className={styles.actionsRow}>
+                            {/* Interactive User Actions */}
+                            <div className={styles.actionsRow}>
 
-                            {/* Star Rating Control */}
-                            <div className={styles.ratingSection}>
-                                <span className={styles.actionLabel}>Your Rating:</span>
-                                <div className={styles.starContainer}>
-                                    {[1, 2, 3, 4, 5].map((star) => (
-                                        <button
-                                        key={star}
-                                        type="button"
-                                        className={`${styles.starButton} ${
-                                            star <= (hoverRating || userRating) ? styles.starActive : ''
-                                        }`}
-                                        onClick={() => setUserRating(star)}
-                                        onMouseEnter={() => setHoverRating(star)}
-                                        onMouseLeave={() => setHoverRating(0)}
-                                        aria-label={`Rate ${star} stars`}
-                                        >
-                                        ★
-                                        </button>
-                                    ))}
+                                {/* Star Rating Control */}
+                                <div className={styles.ratingSection}>
+                                    <span className={styles.actionLabel}>Your Rating:</span>
+                                    <div className={styles.starContainer}>
+                                        {[1, 2, 3, 4, 5].map((star) => (
+                                            <button
+                                            key={star}
+                                            type="button"
+                                            className={`${styles.starButton} ${
+                                                star <= (hoverRating || userRating) ? styles.starActive : ''
+                                            }`}
+                                            onClick={() => setUserRating(star)}
+                                            onMouseEnter={() => setHoverRating(star)}
+                                            onMouseLeave={() => setHoverRating(0)}
+                                            aria-label={`Rate ${star} stars`}
+                                            >
+                                            ★
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
+
+                                {/* Add to Watchlist Button */}
+                                <button
+                                    type="button"
+                                    className={`${styles.listButton} ${isSaved ? styles.listButtonSaved : ''}`}
+                                    onClick={() => setIsSaved(!isSaved)}
+                                >
+                                    {isSaved ? '✓ Saved to Watchlist' : '+ Add to Watchlist'}
+                                </button>
                             </div>
 
-                            {/* Add to Watchlist Button */}
-                            <button
-                                type="button"
-                                className={`${styles.listButton} ${isSaved ? styles.listButtonSaved : ''}`}
-                                onClick={() => setIsSaved(!isSaved)}
-                            >
-                                {isSaved ? '✓ Saved to Watchlist' : '+ Add to Watchlist'}
-                            </button>
+                            {/* Overview / Plot */}
+                            <div className={styles.overviewSection}>
+                                <h3>Overview</h3>
+                                <p>{movie.plot}</p>
+                            </div>
                         </div>
+                    </div>
 
-                        {/* Overview / Plot */}
-                        <div className={styles.overviewSection}>
-                            <h3>Overview</h3>
-                            <p>{movie.plot}</p>
+                    {/* Recommended Carousel Card */}
+                    <div className = {styles.recommendContainer}>
+
+                        <div className = {styles.recommendHeader}>
+                            <h1 className={styles.recommendText}>| More like this</h1>
+                        </div>
+                        
+                        {/* Scrollable Recommended Movies */}
+                        <div className = {styles.recommendCarousel}>
+                            {movies.map((movie) => (
+                                <div key={movie.id} className={styles.recommendCard}>
+                                    <div className={styles.recommendPosterWrapper}>
+                                        <img 
+                                            src={movie.posterUrl} 
+                                            alt={movie.title} 
+                                            className={styles.recommendPoster} 
+                                        />
+                                        </div>
+                                        <div className={styles.recommendInfo}>
+                                            <h4 className={styles.recommendTitle}>{movie.title}</h4>
+                                            <p className={styles.recommendMeta}>
+                                                {movie.year} • ★ {movie.rating?.toFixed(1)}
+                                            </p>
+                                        </div>
+                                    </div>
+                            ))}
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Recommended Carousel Card   */}
-            <div className = {styles.recommendContainer}>
-
-                <div className = {styles.recommendHeader}>
-                    <h1 className={styles.recommendText}>| More like this</h1>
-                </div>
-                
-                {/* Scrollable Recommended Movies */}
-                <div className = {styles.recommendCarousel}>
-                    {movies.map((movie) => (
-                        <div key={movie.id} className={styles.recommendCard}>
-                            <div className={styles.recommendPosterWrapper}>
-                                <img 
-                                    src={movie.posterUrl} 
-                                    alt={movie.title} 
-                                    className={styles.recommendPoster} 
-                                />
-                                </div>
-                                <div className={styles.recommendInfo}>
-                                    <h4 className={styles.recommendTitle}>{movie.title}</h4>
-                                    <p className={styles.recommendMeta}>
-                                        {movie.year} • ★ {movie.rating?.toFixed(1)}
-                                    </p>
-                                </div>
-                        </div>
-                    ))}
-
-                </div>
-
             </div>
         </div> 
     )

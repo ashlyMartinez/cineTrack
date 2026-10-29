@@ -3,9 +3,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2.5rem;
-  background-color: #1f1f1f;
+
+
+  /* background-color: #1f1f1f;
   border-bottom: 1px solid rgba(213, 213, 213, 0.1);
-  border-radius: 5px;
+  border-radius: 5px; */
+
+  /* Transparent styling tailored for movie pages */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(4px); /* Optional subtle blur */
+  -webkit-backdrop-filter: blur(4px);
+
+
   position: sticky;
   top: 0;
   z-index: 1000;

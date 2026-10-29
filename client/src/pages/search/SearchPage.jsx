@@ -2,6 +2,7 @@ import styles from './SearchPage.module.css';
 import movies from '../../components/dummyData';
 import { useNavigate } from 'react-router-dom';
 import {useState} from 'react'
+import Navbar from '../../components/navbars/NavBar';
 export default function SearchPage(){
 
     const navigate = useNavigate();
@@ -21,6 +22,9 @@ export default function SearchPage(){
 
     return (
         <div className = {styles.pageWrapper}>
+            <div className = {styles.nav}>
+                <Navbar />
+            </div>
             <div className = {styles.navContainer}>
                 <div className={styles.searchBarWrapper}>
                     <input

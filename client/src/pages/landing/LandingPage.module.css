@@ -43,12 +43,6 @@
 
 .dashBoard {
   margin: 1rem;
-  
-  border: 1px solid #2525251f;
-  border-radius: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-            box-shadow 0.4s ease;
 }
 
 .title{
