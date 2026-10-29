@@ -55,7 +55,7 @@ export default function Navbar() {
         }
     };
 
-    const isWideScreen = windowWidth > 608; 
+    const isWideScreen = windowWidth > 600; 
 
     return (
         <nav className={styles.navbar}>

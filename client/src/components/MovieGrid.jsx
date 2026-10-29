@@ -50,20 +50,38 @@ export default function MovieGrid() {
           <div className = {styles.desktopTopGrid}>
 
             {
-              movies.slice(0, 3).map((movie) => (
-                <div key={movie.id} className={`${styles.desktopTopCard} cards`} onClick={()=>{handleMovieClick(movie)}}>
+              movies.slice(0, 3).map((movie, index) => (
+                <div key={movie.id} id = {`${index}`} className={`${styles.desktopTopCard} cards `} onClick={()=>{handleMovieClick(movie)}}>
+                  
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
                     className={styles.desktopTopImage}
                   />
-                  <div className={styles.desktopTopContent}>
-                    <h3 className={styles.cardTitle}> {movie.title} </h3>
-                    <p className={styles.cardMeta}>
-                      {movie.year} • {movie.genres.join(', ')} • {movie.duration}
-                    </p>
-                    <p className={styles.cardPlot}>{movie.plot}</p>
+                  <div className={styles.ratingContainer}>
+                    <p className={styles.ratingNumber}> #{index + 1}</p>
                   </div>
+                  
+                  <div className={styles.desktopTopContent}>
+                    
+                    
+                    <h5 className={styles.cardTitle}> {movie.title} </h5>
+                    <div className={styles.cardMeta}>
+                      <p>{movie.year} • {movie.duration} • {movie.rating}★</p>
+                      
+                      <p>{movie.genres.join(', ')}</p>
+                      
+                    </div>
+                      
+                    
+                    
+                    
+                  </div>
+
+                  <div className={styles.cardPlot}>
+                    <p>{movie.plot}</p>
+                   </div>
+                  
 
                   
                 </div>

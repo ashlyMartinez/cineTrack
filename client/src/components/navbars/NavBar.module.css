@@ -45,6 +45,7 @@
 
 /* Search Form Styles */
 .searchForm {
+  
   display: flex;
   align-items: center;
   background-color: #2d2d2d;
@@ -55,8 +56,8 @@
 }
 
 .searchForm:focus-within {
-  border-color: #ffc80042;
-  box-shadow: 0 4px 10px rgba(255, 200, 0, 0.15);
+  border-color: #e0b002b1;
+  
 }
 
 .searchInput {
@@ -112,7 +113,7 @@
 .signinBtn {
   text-decoration: none;
   padding: 0.5rem 1.25rem;
-  background-color: #2563eb;
+  /* background-color: #1914a9; */
   color: #ffffff;
   border-radius: 6px;
   font-weight: 500;
@@ -121,7 +122,8 @@
 }
 
 .signinBtn:hover {
-  background-color: #1d4ed8;
+  background-color: #3737377f;
+  border-radius: 16px;
 }
 
 /* User Icon & Dropdown */

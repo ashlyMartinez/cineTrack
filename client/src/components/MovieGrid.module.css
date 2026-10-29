@@ -1,101 +1,21 @@
 .container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
 
-/* Desktop */
-.desktopTopGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.desktopTopCard {
-  display: flex;
-  flex-direction: row;
-  padding: 1rem;
-  gap: 1rem;
-
-  background: rgba(35, 38, 41, 0.85); 
+.desktopTopCard,
+.compactCard,
+.horizontalCard {
+  background: rgba(34, 34, 34, 0.852);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(47, 47, 47, 0.417);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor:pointer;
-}
-
-
-.desktopTopImage {
-  width: 130px;
-  height: 195px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.desktopTopContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #bdbdbd;
-}
-
-.cardPlot {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #c9d1d9;
-  margin-top: .2rem;
-  display: -webkit-box;
-  line-clamp: 4;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.desktopBottomGrid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1rem;
-
-}
-
-.cardTitle{
-  padding-top: 5px;
-  color: #f8f8f8;
-  /* font-size: 0.9rem;
-  font-weight: 600;
-  color: #f0f6fc;
-  margin: 0 0 0.25rem 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; */
-}
-
-.compactCard {
-  display: flex;
-  flex-direction: column;
-  
-  
-  padding: 0.5rem;
-  
-
-  background: rgba(35, 38, 41, 0.85); 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .horizontalCard:hover,
@@ -105,9 +25,109 @@
   border-color: rgba(254, 208, 41, 0.128); 
 }
 
-.compactContent{
-  padding:.75rem .25rem;
+/* Top Grid Desktop View */
+.desktopTopGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
 
+.desktopTopCard {
+  display: grid;
+  grid-template: 30px 140px 120px / 1fr 1.5fr;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.desktopTopImage {
+  width: 125px;
+  height: 195px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.desktopTopContent {
+  grid-area: 2 / 2 / 2 / 2;
+  color: #bdbdbd;
+}
+
+
+.cardPlot{
+  grid-area: 3 / 1 / 3 / 3; 
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #c9d1d9;
+  margin-top: .2rem;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.ratingContainer {
+  grid-area: 1 / 2 / 1 / 2;
+  width: 40px;
+  padding-top: 5px;
+  padding-left: 10px;
+  border-radius: 6px;
+  background-color: rgba(29, 35, 152, 0.892);
+}
+
+.ratingNumber {
+  color: white;
+  font-size: medium;
+}
+
+.cardTitle {
+  padding-top: 10px;
+  font-weight: 600;
+  color: #f8f8f8;
+}
+
+.cardMeta {
+  font-size: small;
+  padding: 12px 0;
+}
+
+/* Top Movie Card */
+
+[id="0"] {
+  display: grid;
+  grid-template: 30px 130px 100px / 220px 1fr;
+  padding: 1rem;
+ 
+}
+
+[id="0"] .desktopTopImage {
+  grid-area: 1 / 1 / 4 / 2;
+  width: 220px;
+  height: 315px;
+}
+
+[id="0"] .cardPlot {
+  grid-area: 3 / 2 / 3 / 2;
+}
+
+
+/* Bottom Grid for Desktop View*/
+.desktopBottomGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.compactCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0; 
+}
+
+.compactContent {
+  padding: .75rem .45rem;
 }
 
 .compactImage {
@@ -117,7 +137,8 @@
   border-radius: 6px;
 }
 
-/* Tablet & Mobile cards */
+
+/* Tablet and Mobile View*/
 .tabletTwoColGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -133,25 +154,13 @@
 .horizontalCard {
   display: flex;
   align-items: center;
- 
-  padding: 0.75rem;
+  padding: 1rem;
   gap: 1rem;
-  
-  background: rgba(35, 38, 41, 0.85); 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
 }
 
 .horizontalImage {
-  width: 70px;
-  height: 100px;
+  width: 100px;
+  height: 150px;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
@@ -168,6 +177,7 @@
   margin-top: 0.25rem;
 }
 
+
 /* Toggle Button */
 .mobileContainer {
   display: flex;
@@ -175,7 +185,7 @@
   align-items: center;
 }
 
-.toggleWrapper{
+.toggleWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -192,7 +202,6 @@
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  
 }
 
 .toggleButton:hover {
