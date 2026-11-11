@@ -122,14 +122,14 @@ export default function MoviePage(){
                                             alt={movie.title} 
                                             className={styles.recommendPoster} 
                                         />
-                                        </div>
-                                        <div className={styles.recommendInfo}>
-                                            <h4 className={styles.recommendTitle}>{movie.title}</h4>
-                                            <p className={styles.recommendMeta}>
-                                                {movie.year} • ★ {movie.rating?.toFixed(1)}
-                                            </p>
-                                        </div>
                                     </div>
+                                    <div className={styles.recommendInfo}>
+                                        <h4 className={styles.recommendTitle}>{movie.title}</h4>
+                                        <p className={styles.recommendMeta}>
+                                            {movie.year} • ★ {movie.rating?.toFixed(1)}
+                                        </p>
+                                    </div>
+                                </div>
                             ))}
                         </div>
                     </div>

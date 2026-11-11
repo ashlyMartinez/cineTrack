@@ -4,10 +4,6 @@ import { useNavigate, useSearchParams} from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import Navbar from '../../components/navbars/NavBar';
 import MovieGrid from '../../components/MovieGrid';
-// import { useSearchParams } from 'next/navigation'
-
-
-
 
 export default function SearchPage(){
 

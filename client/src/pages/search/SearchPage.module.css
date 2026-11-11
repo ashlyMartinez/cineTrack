@@ -64,19 +64,23 @@
   display: flex;
   align-items: center;
  
+  margin:1.5rem;
   padding: 0.75rem;
-  gap: 1rem;
-  
-  background: rgba(35, 38, 41, 0.85); 
+  gap: 1.35rem;
+
+  background: rgba(34, 34, 34, 0.852);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(47, 47, 47, 0.417);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin:1rem;
+
+  cursor: pointer;
+
+ 
 
 }
 
@@ -87,8 +91,8 @@
 
 
 .horizontalImage {
-  width: 70px;
-  height: 100px;
+  width: 125px;
+  height: 180px;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
@@ -99,16 +103,19 @@
   flex-direction: column;
 }
 
+
 .shortMeta {
-  font-size: 0.85rem;
-  color: #c9d1d9;
-  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: #b6b9c1;
+  margin-bottom: 1.5rem;
 }
 
 .movieTitle{
   padding-top: 5px;
-  color: #f8f8f8;
+  color:rgb(246, 246, 246);
   font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
  
 }
 
@@ -128,4 +135,5 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 

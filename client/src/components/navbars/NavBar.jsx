@@ -24,7 +24,7 @@ export default function Navbar() {
         const token = localStorage.getItem('token');
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (token && storedUser) {
-        setUser(storedUser);
+            setUser(storedUser);
         }
     }, []);
 
@@ -50,8 +50,8 @@ export default function Navbar() {
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         if (searchQuery.trim()) {
-        navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
-        setSearchQuery('');
+            navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+            setSearchQuery('');
         }
     };
 
