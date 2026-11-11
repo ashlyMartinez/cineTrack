@@ -1,24 +1,52 @@
 import styles from './SearchPage.module.css';
 import movies from '../../components/dummyData';
-import { useNavigate } from 'react-router-dom';
-import {useState} from 'react'
+import { useNavigate, useSearchParams} from 'react-router-dom';
+import {useState, useEffect} from 'react'
 import Navbar from '../../components/navbars/NavBar';
+import MovieGrid from '../../components/MovieGrid';
+// import { useSearchParams } from 'next/navigation'
+
+
+
+
 export default function SearchPage(){
 
+    const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
 
-    const [searchTerm, setSearchTerm] = useState('');
+    const query = searchParams.get('q') || "";
+    const hasQuery = query.length > 0;
+
+    useEffect(() => {
+            const handleResize = () => setWindowWidth(window.innerWidth);
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, [])
+    ;
+
 
     // Filter your movies array based on the input before mapping over it:
     const filteredMovies = movies.filter(movie => 
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        movie.genres.some(genre => genre.toLowerCase().includes(searchTerm.toLowerCase()))
+        movie.title.toLowerCase().includes(query.toLowerCase()) ||
+        movie.genres.some(genre => genre.toLowerCase().includes(query.toLowerCase()))
     );
+
+    
+    
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        if (value.trim() !== "") {
+            setSearchParams({ q: value }); 
+        } else {
+            setSearchParams({}); 
+        }
+    };
 
     const handleMovieClick = (movie) =>{
         navigate(`/movie/${movie.id}`, { state: {movie: movie}})
     }
 
+   
 
     return (
         <div className = {styles.pageWrapper}>
@@ -30,21 +58,33 @@ export default function SearchPage(){
                     <input
                         type="text"
                         placeholder="Search movies by title, genre..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        value={query}
+                        onChange={handleSearchChange}
                         className={styles.searchInput}
                     />
                 </div>
 
             </div>
-            {/* When a user creates an account, route user to search page with different movie grids underneath the searchbar */}
+            {/* When a user creates an account, route user to search page with different movie grids underneath the search bar */}
             {/* Insert movie grids here */}
             <div className = {styles.resultContainer}>
                 <div className = {styles.movieListContainer}>
-                    { movies.length === 0 ?
-                        (<p className = {styles.noResults}> No results found </p>
+                    {/* If there is no query than there should be something displayed under the searchbar */}
+                    {/* Currently the default is "No Results Found" */}
+                    {!hasQuery && (
+                        <div className={styles.topMoviesContainer}>
+                            <h2>Top Movies</h2>
+                            <MovieGrid />
+                        </div>
+                    )}
 
-                        ): (movies.map((movie) => (
+                    {hasQuery && movies.length === 0 && (
+                         <p className = {styles.noResults}>No Results Found</p>
+                    )}
+
+                    {hasQuery && movies.length !== 0 && 
+                                          
+                         (movies.map((movie) => (
                             <div key={movie.id} className={styles.horizontalCard} onClick={()=>{handleMovieClick(movie)}}>
                                 
                                 <img
@@ -63,10 +103,9 @@ export default function SearchPage(){
                                     <p className={styles.cardPlot}>{movie.plot}</p>
                                 </div>
                             </div>
-                        )))
-                    }
-                </div>
-                
+                        )))   
+                    }                 
+                </div>    
             </div>
         </div>
     )

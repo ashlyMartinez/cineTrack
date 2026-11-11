@@ -8,12 +8,11 @@ export default function ListPage(){
   return (
     <div className = {styles.pageWrapper}>
         <div className = {styles.nav}>
-                        <Navbar />
-                    </div>
+            <Navbar />
+        </div>
 
         <div className={styles.header}>
-            <h1 className={styles.headerText}>My Watchlist</h1>
-                        
+            <h1 className={styles.headerText}>My Watchlist</h1>             
         </div>
 
         {movies.length === 0 ? (
