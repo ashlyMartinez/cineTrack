@@ -12,6 +12,7 @@ client/dist
 client/dist-ssr
 *.local
 
+server/.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
