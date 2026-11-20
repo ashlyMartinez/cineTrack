@@ -69,7 +69,7 @@ export default function SearchPage(){
                     {/* Currently the default is "No Results Found" */}
                     {!hasQuery && (
                         <div className={styles.topMoviesContainer}>
-                            <h2>Top Movies</h2>
+                            <h2>| Top Movies</h2>
                             <MovieGrid />
                         </div>
                     )}
